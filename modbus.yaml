@@ -229,6 +229,6 @@
       input_type: holding
       unit_of_measurement: "%"
       slave: 1
-      unique_id: "turkovm_m2_fan_ec_speed2"
+      unique_id: "turkovm_m2_fan_ec_speed3"
 
 
