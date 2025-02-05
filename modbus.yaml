@@ -1,0 +1,234 @@
+- name: "turkov_zenit"
+  type: serial
+  method: rtu
+  port: /dev/ttyUSB1
+  baudrate: 9600
+  stopbits: 1
+  bytesize: 8
+  parity: N
+
+  sensors:
+    # Температуры (Input Registers)
+    - name: "TurkovM Уличная температура (D1)"
+      address: 0x0101
+      input_type: input
+      unit_of_measurement: "°C"
+      scale: 0.1
+      scan_interval: 5
+      slave: 1
+      unique_id: "turkovm_d1"
+      precision: 1
+      device_class: "temperature"
+
+    - name: "TurkovM Приточная температура (D2)"
+      address: 0x0102
+      input_type: input
+      unit_of_measurement: "°C"
+      scale: 0.1
+      scan_interval: 5
+      slave: 1
+      unique_id: "turkovm_d2"
+      precision: 1
+      device_class: "temperature"
+
+    - name: "TurkovM Температура вытяжного воздуха (D5)"
+      address: 0x0105
+      input_type: input
+      unit_of_measurement: "°C"
+      scale: 0.1
+      scan_interval: 5
+      slave: 1
+      unique_id: "turkovm_d5"
+      precision: 1
+      device_class: "temperature"
+
+    # Уровень загрязнения фильтра (не требует scan_interval)
+    - name: "TurkovM Уровень загрязнения фильтра"
+      address: 0x0106
+      input_type: input
+      unit_of_measurement: "%"
+      slave: 1
+      unique_id: "turkovm_filter"
+
+    # Код ошибки
+    - name: "TurkovM Код ошибки"
+      address: 0x0107
+      input_type: input
+      slave: 1
+      unique_id: "turkovm_errno"
+
+    # Ток вентиляторов
+    - name: "TurkovM Ток приточного вентилятора (M1)"
+      address: 0x0109
+      input_type: input
+      unit_of_measurement: "A"
+      scale: 0.01
+      scan_interval: 5
+      slave: 1
+      unique_id: "turkovm_m1_a"
+      precision: 2
+      device_class: "current"
+
+    - name: "TurkovM Ток вытяжного вентилятора (M2)"
+      address: 0x010A
+      input_type: input
+      unit_of_measurement: "A"
+      scale: 0.01
+      scan_interval: 5
+      slave: 1
+      unique_id: "turkovm_m2_a"
+      precision: 2
+      device_class: "current"
+
+    # Температура и влажность с датчика D7
+    - name: "TurkovM Температура (D7)"
+      address: 0x010B
+      input_type: input
+      unit_of_measurement: "°C"
+      scale: 0.1
+      scan_interval: 5
+      slave: 1
+      unique_id: "turkovm_d7_temp"
+      precision: 1
+      device_class: "temperature"
+
+    - name: "TurkovM Влажность (D7)"
+      address: 0x010C
+      input_type: input
+      unit_of_measurement: "%"
+      scale: 0.1
+      scan_interval: 5
+      slave: 1
+      unique_id: "turkovm_d7_hum"
+      device_class: "humidity"
+
+    # Режимы работы
+    - name: "TurkovM Режим работы (MODE_ACTIVITY)"
+      address: 0x010E
+      input_type: input
+      slave: 1
+      unique_id: "turmovm_mode_activity"
+
+    - name: "TurkovM Режим работы вентиляторов"
+      address: 0x0110
+      input_type: input
+      slave: 1
+      unique_id: "turkovm_fan_type"
+
+    # События
+    - name: "TurkovM События"
+      address: 0x0111
+      input_type: input
+      scan_interval: 5
+      slave: 1
+      unique_id: "turkovm_event"
+
+    # Мощность вентиляторов (без scan_interval)
+    - name: "TurkovM Мощность приточного вентилятора (M1)"
+      address: 0x0112
+      input_type: input
+      unit_of_measurement: "%"
+      slave: 1
+      unique_id: "turkovm_m1_fan_speed"
+
+    - name: "TurkovM Мощность вытяжного вентилятора (M2)"
+      address: 0x0113
+      input_type: input
+      unit_of_measurement: "%"
+      slave: 1
+      unique_id: "turkovm_m2_fan_speed"
+
+    # Серийный номер (Custom, не требует scan_interval)
+    - name: "TurkovM Серийный номер"
+      address: 0x0117
+      input_type: input
+      count: 9
+      data_type: custom
+      structure: ">9H"
+      slave: 1
+      unique_id: "turkovm_serial"
+
+    # Holding-регистры (не требуют scan_interval)
+    - name: "TurkovM Вкл/выкл (ON_OFF)"
+      address: 0x0001
+      input_type: holding
+      slave: 1
+      unique_id: "turkovm_on_off"
+
+    - name: "TurkovM Уставка температуры (TEMP_SETPOINT)"
+      address: 0x0002
+      input_type: holding
+      unit_of_measurement: "°C"
+      #scale: 0.1
+      slave: 1
+      unique_id: "turkovm_set_temp"
+
+    - name: "TurkovM Скорость вентилятора (FAN_SPEED)"
+      address: 0x0003
+      input_type: holding
+      slave: 1
+      unique_id: "turkovm_fan_speed"
+
+    - name: "TurkovM Режим работы (SEZON)"
+      address: 0x0004
+      input_type: holding
+      slave: 1
+      unique_id: "turkovm_season"
+
+    - name: "TurkovM Уставка скорости приточного вентилятора (M1_SPEED)"
+      address: 0x0005
+      input_type: holding
+      unit_of_measurement: "%"
+      slave: 1
+      unique_id: "turkovm_set_m1_speed"
+
+    - name: "TurkovM Уставка скорости вытяжного вентилятора (M2_SPEED)"
+      address: 0x0006
+      input_type: holding
+      unit_of_measurement: "%"
+      slave: 1
+      unique_id: "turkovm_set_m2_speed"
+
+    - name: "Мощность приточного ЕС вентилятора на первой скорости"
+      address: 0x0010
+      input_type: holding
+      unit_of_measurement: "%"
+      slave: 1
+      unique_id: "turkovm_m1_fan_ec_speed1"
+
+    - name: "Мощность приточного ЕС вентилятора на второй скорости"
+      address: 0x0011
+      input_type: holding
+      unit_of_measurement: "%"
+      slave: 1
+      unique_id: "turkovm_m1_fan_ec_speed2"
+
+    - name: "Мощность приточного ЕС вентилятора на третьей скорости"
+      address: 0x0012
+      input_type: holding
+      unit_of_measurement: "%"
+      slave: 1
+      unique_id: "turkovm_m1_fan_ec_speed3"
+
+    - name: "Мощность вытяжного ЕС вентилятора на первой скорости"
+      address: 0x0013
+      input_type: holding
+      unit_of_measurement: "%"
+      slave: 1
+      unique_id: "turkovm_m2_fan_ec_speed1"
+
+    - name: "Мощность вытяжного ЕС вентилятора на второй скорости"
+      address: 0x0014
+      input_type: holding
+      unit_of_measurement: "%"
+      slave: 1
+      unique_id: "turkovm_m2_fan_ec_speed2"
+
+    - name: "Мощность вытяжного ЕС вентилятора на третьей скорости"
+      address: 0x0015
+      input_type: holding
+      unit_of_measurement: "%"
+      slave: 1
+      unique_id: "turkovm_m2_fan_ec_speed2"
+
+
