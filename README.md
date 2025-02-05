@@ -33,30 +33,6 @@ Turkov Zenit — это система управления вентиляцие
 
 ---
 
-## Настройка в Home Assistant
-Для настройки Modbus добавьте в файл `configuration.yaml` следующий раздел:
-
-```yaml
-modbus:
-  - name: "turkov_zenit"
-    type: serial
-    method: rtu
-    port: /dev/ttyUSB0  # Укажите ваш COM-порт
-    baudrate: 9600      # Скорость передачи
-    stopbits: 1         # Стоп-биты
-    bytesize: 8         # Битность
-    parity: N           # Четность
-```
-
----
-
-## Команды Modbus
-Turkov Zenit поддерживает следующие команды Modbus:
-- **Чтение регистров**: Используется для получения данных (например, температуры, влажности).
-- **Запись в регистры**: Используется для изменения настроек (например, уставки температуры, скорости вентилятора).
-
----
-
 ## Документация
 - **Документация по Modbus для Home Assistant**:  
   [https://www.home-assistant.io/integrations/modbus/](https://www.home-assistant.io/integrations/modbus/)
