@@ -189,42 +189,42 @@
       slave: 1
       unique_id: "turkovm_set_m2_speed"
 
-    - name: "Мощность приточного ЕС вентилятора на первой скорости"
+    - name: "TurkovM Мощность приточного ЕС вентилятора на первой скорости"
       address: 0x0010
       input_type: holding
       unit_of_measurement: "%"
       slave: 1
       unique_id: "turkovm_m1_fan_ec_speed1"
 
-    - name: "Мощность приточного ЕС вентилятора на второй скорости"
+    - name: "TurkovM Мощность приточного ЕС вентилятора на второй скорости"
       address: 0x0011
       input_type: holding
       unit_of_measurement: "%"
       slave: 1
       unique_id: "turkovm_m1_fan_ec_speed2"
 
-    - name: "Мощность приточного ЕС вентилятора на третьей скорости"
+    - name: "TurkovM Мощность приточного ЕС вентилятора на третьей скорости"
       address: 0x0012
       input_type: holding
       unit_of_measurement: "%"
       slave: 1
       unique_id: "turkovm_m1_fan_ec_speed3"
 
-    - name: "Мощность вытяжного ЕС вентилятора на первой скорости"
+    - name: "TurkovM Мощность вытяжного ЕС вентилятора на первой скорости"
       address: 0x0013
       input_type: holding
       unit_of_measurement: "%"
       slave: 1
       unique_id: "turkovm_m2_fan_ec_speed1"
 
-    - name: "Мощность вытяжного ЕС вентилятора на второй скорости"
+    - name: "TurkovM Мощность вытяжного ЕС вентилятора на второй скорости"
       address: 0x0014
       input_type: holding
       unit_of_measurement: "%"
       slave: 1
       unique_id: "turkovm_m2_fan_ec_speed2"
 
-    - name: "Мощность вытяжного ЕС вентилятора на третьей скорости"
+    - name: "TurkovM Мощность вытяжного ЕС вентилятора на третьей скорости"
       address: 0x0015
       input_type: holding
       unit_of_measurement: "%"
