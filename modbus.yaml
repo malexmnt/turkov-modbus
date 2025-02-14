@@ -19,6 +19,7 @@
       unique_id: "turkovm_d1"
       precision: 1
       device_class: "temperature"
+      state_class: "measurement"
 
     - name: "TurkovM Приточная температура (D2)"
       address: 0x0102
@@ -30,6 +31,7 @@
       unique_id: "turkovm_d2"
       precision: 1
       device_class: "temperature"
+      state_class: "measurement"
 
     - name: "TurkovM Температура вытяжного воздуха (D5)"
       address: 0x0105
@@ -41,6 +43,7 @@
       unique_id: "turkovm_d5"
       precision: 1
       device_class: "temperature"
+      state_class: "measurement"
 
     # Уровень загрязнения фильтра (не требует scan_interval)
     - name: "TurkovM Уровень загрязнения фильтра"
@@ -68,6 +71,7 @@
       unique_id: "turkovm_m1_a"
       precision: 2
       device_class: "current"
+      state_class: "measurement"
 
     - name: "TurkovM Ток вытяжного вентилятора (M2)"
       address: 0x010A
@@ -79,6 +83,7 @@
       unique_id: "turkovm_m2_a"
       precision: 2
       device_class: "current"
+      state_class: "measurement"
 
     # Температура и влажность с датчика D7
     - name: "TurkovM Температура (D7)"
@@ -91,6 +96,7 @@
       unique_id: "turkovm_d7_temp"
       precision: 1
       device_class: "temperature"
+      state_class: "measurement"
 
     - name: "TurkovM Влажность (D7)"
       address: 0x010C
@@ -101,6 +107,7 @@
       slave: 1
       unique_id: "turkovm_d7_hum"
       device_class: "humidity"
+      state_class: "measurement"
 
     # Режимы работы
     - name: "TurkovM Режим работы (MODE_ACTIVITY)"
